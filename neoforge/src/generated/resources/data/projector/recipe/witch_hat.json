@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": "minecraft:black_wool",
+    "Y": "minecraft:yellow_wool"
+  },
+  "pattern": [
+    " B ",
+    "BYB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "projector:witch_hat"
+  }
+}

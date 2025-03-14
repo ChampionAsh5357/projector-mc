@@ -6,9 +6,12 @@ import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeProvider;
 import org.apache.commons.lang3.function.Consumers;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 
 public interface GeneratorFactory {
@@ -30,6 +33,8 @@ public interface GeneratorFactory {
     default void itemModels(Consumer<ItemModelGenerators> itemModels) {
         this.models(Consumers.nop(), itemModels);
     }
+
+    void recipes(BiFunction<HolderLookup.Provider, RecipeOutput, ? extends RecipeProvider> recipes);
 
     void models(Consumer<BlockModelGenerators> blockModels, Consumer<ItemModelGenerators> itemModels);
 
