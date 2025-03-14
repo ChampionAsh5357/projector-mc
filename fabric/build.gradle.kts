@@ -14,7 +14,6 @@ internal val mod_description: String by rootProject.extra
 internal val mod_group_id: String by rootProject.extra
 
 internal val minecraft_version: String = libs.versions.minecraft.get()
-internal val neoforge_version: String = libs.versions.neoforge.version.get()
 
 internal val modMainClass: String = "${project.name.replaceFirstChar {
     if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
@@ -59,8 +58,6 @@ sourceSets["main"].resources {
     exclude("./cache")
 }
 tasks.withType<IdeaSyncTask>().forEach { it.finalizedBy(generateModMetadata) }
-
-
 
 repositories {
     maven {
