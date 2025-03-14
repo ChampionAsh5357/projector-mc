@@ -46,21 +46,21 @@ val generateModMetadata: TaskProvider<ProcessResources> = tasks.register<Process
     into(project.relativePath("build/generated/sources/modMetadata"))
 }
 
-sourceSets["main"].resources {
-    source(generated.resources)
-    srcDir(generateModMetadata)
-    exclude("./cache")
-}
-tasks.withType<IdeaSyncTask>().forEach { it.finalizedBy(generateModMetadata) }
-
 val common: Project = rootProject.project(":common")
 project.evaluationDependsOn(common.path)
 tasks.withType<JavaCompile> {
     source(common.sourceSets["main"].allSource)
 }
-tasks.withType<ProcessResources> {
-    from(common.sourceSets["main"].resources)
+
+sourceSets["main"].resources {
+    source(generated.resources)
+    srcDir(generateModMetadata)
+    srcDirs(common.sourceSets["main"].resources)
+    exclude("./cache")
 }
+tasks.withType<IdeaSyncTask>().forEach { it.finalizedBy(generateModMetadata) }
+
+
 
 repositories {
     maven {

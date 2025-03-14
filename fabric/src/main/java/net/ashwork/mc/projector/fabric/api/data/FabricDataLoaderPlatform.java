@@ -4,8 +4,11 @@ import net.ashwork.mc.projector.api.data.DataModLoaderPlatform;
 import net.ashwork.mc.projector.api.data.client.TranslationProvider;
 import net.ashwork.mc.projector.api.data.generator.GeneratorFactory;
 import net.ashwork.mc.projector.api.loader.AbstractModLoaderPlatform;
+import net.ashwork.mc.projector.fabric.api.data.client.FabricModelProviderImpl;
 import net.ashwork.mc.projector.fabric.api.data.client.FabricTranslationProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.data.DataProvider;
 
 import java.util.ArrayList;
@@ -46,6 +49,11 @@ public class FabricDataLoaderPlatform extends AbstractModLoaderPlatform implemen
             @Override
             public void translations(String locale, Consumer<TranslationProvider> provider) {
                 generator.addProvider((output, registries) -> new FabricTranslationProvider(output, locale, registries, provider));
+            }
+
+            @Override
+            public void models(Consumer<BlockModelGenerators> blockModels, Consumer<ItemModelGenerators> itemModels) {
+                generator.addProvider((FabricDataGenerator.Pack.Factory<FabricModelProviderImpl>) output -> new FabricModelProviderImpl(output, blockModels, itemModels));
             }
         };
     }

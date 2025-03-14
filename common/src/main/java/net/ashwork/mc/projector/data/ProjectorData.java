@@ -3,6 +3,7 @@ package net.ashwork.mc.projector.data;
 import net.ashwork.mc.projector.ProjectorRef;
 import net.ashwork.mc.projector.api.data.DataModLoaderPlatform;
 import net.ashwork.mc.projector.api.data.generator.GeneratorFactory;
+import net.ashwork.mc.projector.data.client.ProjectorModels;
 import net.ashwork.mc.projector.data.client.ProjectorTranslations;
 
 public interface ProjectorData {
@@ -15,5 +16,6 @@ public interface ProjectorData {
 
     private static void generateGlobalPack(GeneratorFactory factory) {
         factory.translations(ProjectorTranslations::buildEnglishTranslations);
+        factory.itemModels(ProjectorModels::buildItemModels);
     }
 }
