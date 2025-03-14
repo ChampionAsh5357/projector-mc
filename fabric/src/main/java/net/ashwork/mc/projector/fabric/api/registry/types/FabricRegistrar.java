@@ -1,7 +1,7 @@
-package net.ashwork.mc.projector.fabric.api.registry;
+package net.ashwork.mc.projector.fabric.api.registry.types;
 
 import net.ashwork.mc.projector.api.registry.ObjectReference;
-import net.ashwork.mc.projector.api.registry.Registrar;
+import net.ashwork.mc.projector.api.registry.types.Registrar;
 import net.ashwork.mc.projector.api.registry.impl.HolderDelegateObjectReference;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;

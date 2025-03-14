@@ -1,7 +1,7 @@
-package net.ashwork.mc.projector.neoforge.api.registry;
+package net.ashwork.mc.projector.neoforge.api.registry.types;
 
 import net.ashwork.mc.projector.api.registry.ObjectReference;
-import net.ashwork.mc.projector.api.registry.Registrar;
+import net.ashwork.mc.projector.api.registry.types.Registrar;
 import net.ashwork.mc.projector.api.registry.impl.HolderDelegateObjectReference;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.registries.DeferredRegister;

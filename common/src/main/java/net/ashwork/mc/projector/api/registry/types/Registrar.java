@@ -1,5 +1,6 @@
-package net.ashwork.mc.projector.api.registry;
+package net.ashwork.mc.projector.api.registry.types;
 
+import net.ashwork.mc.projector.api.registry.ObjectReference;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Function;
