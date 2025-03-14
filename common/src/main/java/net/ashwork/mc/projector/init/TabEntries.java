@@ -7,10 +7,10 @@ import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
 
-public class TabsRegistrar {
+public class TabEntries {
 
-    public static final Supplier<CreativeModeTab> PROJECTOR = tab("projector", ItemRegistrar.WITCH_HAT, (params, output) -> {
-        output.accept(ItemRegistrar.WITCH_HAT.get());
+    public static final Supplier<CreativeModeTab> PROJECTOR = tab("projector", ItemEntries.WITCH_HAT, (params, output) -> {
+        output.accept(ItemEntries.WITCH_HAT.get());
     });
 
     static Supplier<CreativeModeTab> tab(String name, Supplier<? extends Item> icon, CreativeModeTab.DisplayItemsGenerator displayItems) {

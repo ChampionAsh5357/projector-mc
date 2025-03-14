@@ -2,8 +2,10 @@ package net.ashwork.mc.projector.neoforge.api.registry;
 
 import net.ashwork.mc.projector.api.registry.RegistrarPlatform;
 import net.ashwork.mc.projector.api.registry.types.CreativeModeTabRegistrar;
+import net.ashwork.mc.projector.api.registry.types.ItemRegistrar;
 import net.ashwork.mc.projector.api.registry.types.Registrar;
 import net.ashwork.mc.projector.neoforge.api.registry.types.NeoForgeCreativeModeTabRegistrar;
+import net.ashwork.mc.projector.neoforge.api.registry.types.NeoForgeItemRegistrar;
 import net.ashwork.mc.projector.neoforge.api.registry.types.NeoForgeRegistrar;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -26,6 +28,11 @@ public class NeoForgeRegistrarPlatform implements RegistrarPlatform {
     @Override
     public <REGISTRY> Registrar<REGISTRY> createRegistrar(ResourceKey<? extends Registry<REGISTRY>> registryKey) {
         return this.create(registryKey, NeoForgeRegistrar::new);
+    }
+
+    @Override
+    public ItemRegistrar createItemRegistrar() {
+        return this.create(Registries.ITEM, NeoForgeItemRegistrar::new);
     }
 
     @Override
