@@ -1,0 +1,36 @@
+[versions]
+
+# Common
+java = "21"
+licenser = "0.7.5"
+
+# Vanilla
+minecraft = "1.21.4"
+parchment = "2025.02.16"
+vanilla_gradle = "0.2.1-SNAPSHOT"
+
+# NeoForge
+neoforge_gradle = "2.0.78"
+neoforge_version = "21.4.111-beta"
+
+# Fabric
+fabric_loom = "1.10-SNAPSHOT"
+fabric_loader = "0.16.10"
+fabric_api = "0.118.5+1.21.4"
+
+[libraries]
+
+minecraft = { module = "com.mojang:minecraft", version.ref = "minecraft" }
+fabric_loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
+fabric_api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric_api" }
+
+[bundles]
+
+fabric = [ "fabric_loader", "fabric_api" ]
+
+[plugins]
+
+licenser = { id = "net.neoforged.licenser", version.ref = "licenser" }
+vanilla_gradle = { id = "org.spongepowered.gradle.vanilla", version.ref = "vanilla_gradle" }
+neoforge_gradle = { id = "net.neoforged.moddev", version.ref = "neoforge_gradle" }
+fabric_loom = { id = "fabric-loom", version.ref = "fabric_loom" }
