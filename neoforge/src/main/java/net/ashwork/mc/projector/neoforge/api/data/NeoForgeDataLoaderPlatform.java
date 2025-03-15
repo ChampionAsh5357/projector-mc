@@ -40,28 +40,23 @@ public class NeoForgeDataLoaderPlatform extends AbstractModLoaderPlatform implem
         var globalPack = new GeneratorFactory() {
 
             @Override
-            public <PROVIDER extends DataProvider> PROVIDER create(DataProvider.Factory<PROVIDER> factory) {
-                return event.createProvider(factory::create);
-            }
-
-            @Override
-            public <PROVIDER extends DataProvider> PROVIDER create(FactoryWithRegistries<PROVIDER> factory) {
-                return event.createProvider(factory::create);
+            public <PROVIDER extends DataProvider> PROVIDER create(FactoryWithRegistriesAndId<PROVIDER> factory) {
+                return event.createProvider((output, registries) -> factory.create(output, registries, NeoForgeDataLoaderPlatform.this.modId()));
             }
 
             @Override
             public void translations(String locale, Consumer<TranslationProvider> provider) {
-                this.create(output -> new NeoForgeTranslationProvider(output, NeoForgeDataLoaderPlatform.this.modId(), locale, provider));
+                this.createWithId((output, modId) -> new NeoForgeTranslationProvider(output, modId, locale, provider));
             }
 
             @Override
             public void recipes(BiFunction<HolderLookup.Provider, RecipeOutput, ? extends RecipeProvider> recipes) {
-                this.create((output, registries) -> new NeoForgeRecipeProvider(output, registries, NeoForgeDataLoaderPlatform.this.modId(), recipes));
+                this.create((output, registries, modId) -> new NeoForgeRecipeProvider(output, registries, modId, recipes));
             }
 
             @Override
             public void models(Consumer<BlockModelGenerators> blockModels, Consumer<ItemModelGenerators> itemModels) {
-                this.create(output -> new NeoForgeModelProvider(output, NeoForgeDataLoaderPlatform.this.modId(), blockModels, itemModels));
+                this.createWithId((output, modId) -> new NeoForgeModelProvider(output, modId, blockModels, itemModels));
             }
         };
 

@@ -41,14 +41,10 @@ public class FabricDataLoaderPlatform extends AbstractModLoaderPlatform implemen
 
     private GeneratorFactory fromPack(FabricDataGenerator.Pack generator) {
         return new GeneratorFactory() {
-            @Override
-            public <PROVIDER extends DataProvider> PROVIDER create(DataProvider.Factory<PROVIDER> factory) {
-                return generator.addProvider(factory);
-            }
 
             @Override
-            public <PROVIDER extends DataProvider> PROVIDER create(FactoryWithRegistries<PROVIDER> factory) {
-                return generator.addProvider(factory::create);
+            public <PROVIDER extends DataProvider> PROVIDER create(FactoryWithRegistriesAndId<PROVIDER> factory) {
+                return generator.addProvider((output, registries) -> factory.create(output, registries, FabricDataLoaderPlatform.this.modId()));
             }
 
             @Override
