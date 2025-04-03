@@ -70,8 +70,8 @@ dependencies {
 neoForge {
     version = neoforge_version
     parchment {
-        mappingsVersion = libs.versions.parchment.get()
-        minecraftVersion = minecraft_version
+        mappingsVersion = libs.versions.parchment.version.get()
+        minecraftVersion = libs.versions.parchment.minecraft.get()
     }
     ideSyncTask(generateModMetadata)
 

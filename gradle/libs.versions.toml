@@ -5,18 +5,23 @@ java = "21"
 licenser = "0.7.5"
 
 # Vanilla
-minecraft = "1.21.4"
-parchment = "2025.02.16"
+minecraft = "1.21.5"
+# https://parchmentmc.org/docs/getting-started
+parchment_minecraft = "1.21.4"
+parchment_version = "2025.03.23"
 vanilla_gradle = "0.2.1-SNAPSHOT"
 
 # NeoForge
-neoforge_gradle = "2.0.78"
-neoforge_version = "21.4.111-beta"
+# https://projects.neoforged.net/neoforged/moddevgradle
+neoforge_gradle = "2.0.80"
+# https://projects.neoforged.net/neoforged/neoforge
+neoforge_version = "21.5.22-beta"
 
 # Fabric
+# https://fabricmc.net/develop/
 fabric_loom = "1.10-SNAPSHOT"
-fabric_loader = "0.16.10"
-fabric_api = "0.118.5+1.21.4"
+fabric_loader = "0.16.12"
+fabric_api = "0.119.6+1.21.5"
 
 [libraries]
 
