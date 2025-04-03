@@ -13,6 +13,9 @@
         "main": [
             "${mod_entrypoint}"
         ],
+        "client": [
+            "${mod_client_entrypoint}"
+        ],
         "fabric-datagen": [
             "${mod_data_entrypoint}"
         ]

@@ -32,6 +32,7 @@ val generateModMetadata: TaskProvider<ProcessResources> = tasks.register<Process
         "mod_authors" to mod_authors,
         "mod_license" to mod_license,
         "mod_entrypoint" to "$mod_group_id.$mod_id.${project.name}.${modMainClass}",
+        "mod_client_entrypoint" to "$mod_group_id.$mod_id.${project.name}.client.${modMainClass}Client",
         "mod_data_entrypoint" to "$mod_group_id.$mod_id.${project.name}.data.${modMainClass}Data",
         "minecraft_version" to minecraft_version,
         "fabric_loader_version" to libs.versions.fabric.loader.get(),
