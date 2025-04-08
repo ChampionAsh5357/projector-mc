@@ -2,6 +2,7 @@ package net.ashwork.mc.projector.neoforge.api;
 
 import net.ashwork.mc.projector.api.loader.AbstractModLoaderPlatform;
 import net.ashwork.mc.projector.api.ModLoaderPlatform;
+import net.ashwork.mc.projector.api.loader.reference.FactoryReferenceHolder;
 import net.ashwork.mc.projector.api.registry.RegistrarPlatform;
 import net.ashwork.mc.projector.api.registry.types.Registrar;
 import net.ashwork.mc.projector.neoforge.api.registry.NeoForgeRegistrarPlatform;
@@ -18,8 +19,8 @@ public class NeoForgeLoaderPlatform extends AbstractModLoaderPlatform implements
     private final ModContainer container;
     private final RegistrarPlatform registrar;
 
-    public NeoForgeLoaderPlatform(final String modId) {
-        super(modId);
+    public NeoForgeLoaderPlatform(FactoryReferenceHolder factory, String modId) {
+        super(factory, modId);
         this.container = ModList.get().getModContainerById(modId).orElseThrow(() -> new IllegalStateException("How did this happen?"));
         this.registrar = new NeoForgeRegistrarPlatform(this.modId(), this.modBus());
     }

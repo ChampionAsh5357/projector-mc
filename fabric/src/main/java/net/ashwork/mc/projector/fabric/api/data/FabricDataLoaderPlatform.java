@@ -4,6 +4,7 @@ import net.ashwork.mc.projector.api.data.DataModLoaderPlatform;
 import net.ashwork.mc.projector.api.data.client.TranslationProvider;
 import net.ashwork.mc.projector.api.data.generator.GeneratorFactory;
 import net.ashwork.mc.projector.api.loader.AbstractModLoaderPlatform;
+import net.ashwork.mc.projector.api.loader.reference.FactoryReferenceHolder;
 import net.ashwork.mc.projector.fabric.api.data.client.FabricModelProviderImpl;
 import net.ashwork.mc.projector.fabric.api.data.client.FabricTranslationProvider;
 import net.ashwork.mc.projector.fabric.api.data.server.FabricRecipeProviderImpl;
@@ -24,8 +25,8 @@ public class FabricDataLoaderPlatform extends AbstractModLoaderPlatform implemen
 
     private final List<Consumer<GeneratorFactory>> globalRuns;
 
-    public FabricDataLoaderPlatform(String modId) {
-        super(modId);
+    public FabricDataLoaderPlatform(FactoryReferenceHolder factory, String modId) {
+        super(factory, modId);
         this.globalRuns = new ArrayList<>();
     }
 

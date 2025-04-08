@@ -1,6 +1,7 @@
 package net.ashwork.mc.projector.api.client.loader;
 
 import net.ashwork.mc.projector.api.client.ClientModLoaderPlatform;
+import net.ashwork.mc.projector.api.loader.reference.AbstractFactoryReferenceHolder;
 import net.minecraft.util.context.ContextKey;
 import org.jetbrains.annotations.Nullable;
 
@@ -10,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public abstract class AbstractClientPlatformFactory implements ClientPlatformFactory {
+public abstract class AbstractClientPlatformFactory extends AbstractFactoryReferenceHolder implements ClientPlatformFactory {
 
     protected final Map<String, ClientModLoaderPlatform> clients;
     protected final Map<ContextKey<?>, Object> store;

@@ -9,11 +9,11 @@ public class FabricPlatformFactory extends AbstractPlatformFactory {
 
     @Override
     protected ModLoaderPlatform createPlatform(String modId) {
-        return new FabricLoaderPlatform(modId);
+        return new FabricLoaderPlatform(this, modId);
     }
 
     @Override
     protected DataModLoaderPlatform createDataPlatform(String modId) {
-        return new FabricDataLoaderPlatform(modId);
+        return new FabricDataLoaderPlatform(this, modId);
     }
 }

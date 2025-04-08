@@ -2,11 +2,12 @@ package net.ashwork.mc.projector.api.loader;
 
 import net.ashwork.mc.projector.api.ModLoaderPlatform;
 import net.ashwork.mc.projector.api.data.DataModLoaderPlatform;
+import net.ashwork.mc.projector.api.loader.reference.AbstractFactoryReferenceHolder;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public abstract class AbstractPlatformFactory implements PlatformFactory {
+public abstract class AbstractPlatformFactory extends AbstractFactoryReferenceHolder implements PlatformFactory {
 
     protected final Map<String, ModLoaderPlatform> platforms;
     protected final Map<String, DataModLoaderPlatform> data;

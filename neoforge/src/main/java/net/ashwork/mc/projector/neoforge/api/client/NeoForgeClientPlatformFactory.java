@@ -7,6 +7,6 @@ public class NeoForgeClientPlatformFactory extends AbstractClientPlatformFactory
 
     @Override
     protected ClientModLoaderPlatform createClientPlatform(String modId) {
-        return new NeoForgeClientLoaderPlatform(modId);
+        return new NeoForgeClientLoaderPlatform(this, modId);
     }
 }

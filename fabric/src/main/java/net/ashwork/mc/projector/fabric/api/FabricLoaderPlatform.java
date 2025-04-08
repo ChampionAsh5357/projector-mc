@@ -2,6 +2,7 @@ package net.ashwork.mc.projector.fabric.api;
 
 import net.ashwork.mc.projector.api.loader.AbstractModLoaderPlatform;
 import net.ashwork.mc.projector.api.ModLoaderPlatform;
+import net.ashwork.mc.projector.api.loader.reference.FactoryReferenceHolder;
 import net.ashwork.mc.projector.api.registry.RegistrarPlatform;
 import net.ashwork.mc.projector.api.registry.types.Registrar;
 import net.ashwork.mc.projector.fabric.api.registry.FabricRegistrarPlatform;
@@ -13,8 +14,8 @@ public class FabricLoaderPlatform extends AbstractModLoaderPlatform implements M
 
     private final RegistrarPlatform registrar;
 
-    public FabricLoaderPlatform(String modId) {
-        super(modId);
+    public FabricLoaderPlatform(FactoryReferenceHolder factory, String modId) {
+        super(factory, modId);
         this.registrar = new FabricRegistrarPlatform(this.modId());
     }
 

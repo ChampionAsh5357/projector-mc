@@ -10,11 +10,11 @@ public class NeoForgePlatformFactory extends AbstractPlatformFactory {
 
     @Override
     public ModLoaderPlatform createPlatform(String modId) {
-        return new NeoForgeLoaderPlatform(modId);
+        return new NeoForgeLoaderPlatform(this, modId);
     }
 
     @Override
     public DataModLoaderPlatform createDataPlatform(String modId) {
-        return new NeoForgeDataLoaderPlatform(modId);
+        return new NeoForgeDataLoaderPlatform(this, modId);
     }
 }

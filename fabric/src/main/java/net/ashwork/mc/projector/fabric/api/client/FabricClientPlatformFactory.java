@@ -7,6 +7,6 @@ public class FabricClientPlatformFactory extends AbstractClientPlatformFactory {
 
     @Override
     protected ClientModLoaderPlatform createClientPlatform(String modId) {
-        return new FabricClientLoaderPlatform(modId);
+        return new FabricClientLoaderPlatform(this, modId);
     }
 }
