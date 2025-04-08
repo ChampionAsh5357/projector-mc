@@ -44,7 +44,7 @@ public abstract class AbstractClientPlatformFactory implements ClientPlatformFac
     }
 
     @Override
-    public <T> void store(ContextKey<T> key, T value) {
+    public <T> void capture(ContextKey<T> key, T value) {
         this.store.put(key, value);
     }
 

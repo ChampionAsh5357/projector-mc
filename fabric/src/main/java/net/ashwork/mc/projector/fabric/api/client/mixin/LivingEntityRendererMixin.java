@@ -22,8 +22,8 @@ public class LivingEntityRendererMixin<T extends LivingEntity, S extends LivingE
 
     @Inject(at = @At("HEAD"), method = "render(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
     private void capture(S livingEntityRenderState, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, CallbackInfo ci) {
-        ClientPlatformFactory.INSTANCE.store(ClientGlobalKeys.ENTITY_STATE, livingEntityRenderState);
-        ClientPlatformFactory.INSTANCE.store(ClientGlobalKeys.PARENT_MODEL, this.model);
+        ClientPlatformFactory.INSTANCE.capture(ClientGlobalKeys.ENTITY_STATE, livingEntityRenderState);
+        ClientPlatformFactory.INSTANCE.capture(ClientGlobalKeys.PARENT_MODEL, this.model);
     }
 
     @Inject(at = @At("TAIL"), method = "render(Lnet/minecraft/client/renderer/entity/state/LivingEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V")
